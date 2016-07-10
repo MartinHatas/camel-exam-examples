@@ -1,25 +1,19 @@
 package cz.hatoff.camel.examples.csv;
 
 
-import cz.hatoff.camel.examples.csv.pojo.Person;
 import org.apache.camel.RoutesBuilder;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.mock.MockEndpoint;
-import org.apache.camel.model.dataformat.BindyType;
 import org.apache.camel.model.dataformat.CsvDataFormat;
 import org.apache.camel.test.junit4.CamelTestSupport;
 import org.junit.Test;
 
-import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
 
 import static java.util.Arrays.asList;
 
 public class MarshallingCsvTest extends CamelTestSupport {
-
-    private static final String DATE_FORMAT = "dd/MM/yyyy";
 
     @Override
     protected RoutesBuilder createRouteBuilder() throws Exception {
@@ -28,7 +22,7 @@ public class MarshallingCsvTest extends CamelTestSupport {
 
                 CsvDataFormat csvDataFormat = new CsvDataFormat();
                 csvDataFormat.setDelimiter(";");
-                csvDataFormat.setHeader(asList("Name","Price","Date"));
+                csvDataFormat.setHeader(asList("Name", "Price", "Date"));
 
 
                 from("direct:csv.in")
@@ -54,7 +48,7 @@ public class MarshallingCsvTest extends CamelTestSupport {
 
         Map<String, Object> veronikaMap = new HashMap<String, Object>();
         veronikaMap.put("Name", "Veronika");
-        veronikaMap.put("Price","52,4");
+        veronikaMap.put("Price", "52,4");
         veronikaMap.put("Date", "27/01/1989");
 
         sendBody("direct:csv.in", asList(martinMap, veronikaMap));
