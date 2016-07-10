@@ -30,7 +30,7 @@ public class MarshallingCsvBindyTest extends CamelTestSupport {
     }
 
     @Test
-    public void testCsvUnmarshalling() throws Exception {
+    public void testCsvMarshalling() throws Exception {
 
         String expectedCsv =
                 "Name;Price;Date\r\n" +
