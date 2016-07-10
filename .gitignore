@@ -1,3 +1,5 @@
 .idea*
 csv-bindy/target/*
 *.iml
+*.class
+csv/target/*

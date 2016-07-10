@@ -21,12 +21,10 @@ public class UnmarshallingCsvBindyTest extends CamelTestSupport {
     protected RoutesBuilder createRouteBuilder() throws Exception {
         return new RouteBuilder() {
             public void configure() {
-
                 from("direct:csv.in")
                     .unmarshal().bindy(BindyType.Csv, Person.class)
                     .split(body())
                     .to("mock:unmarshalled");
-
             }
         };
     }

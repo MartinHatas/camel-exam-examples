@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/certification-examples.iml" filepath="$PROJECT_DIR$/certification-examples.iml" />
-      <module fileurl="file://$PROJECT_DIR$/csv-bindy/csv-bindy.iml" filepath="$PROJECT_DIR$/csv-bindy/csv-bindy.iml" />
-    </modules>
-  </component>
-</project>
