@@ -1,6 +1,6 @@
 package cz.hatoff.camel.examples.csv.bindy;
 
-import cz.hatoff.camel.examples.csv.bindy.pojo.Person;
+import cz.hatoff.camel.examples.csv.pojo.Person;
 import org.apache.camel.RoutesBuilder;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.mock.MockEndpoint;
@@ -8,7 +8,6 @@ import org.apache.camel.model.dataformat.BindyType;
 import org.apache.camel.test.junit4.CamelTestSupport;
 import org.junit.Test;
 
-import java.awt.*;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 
