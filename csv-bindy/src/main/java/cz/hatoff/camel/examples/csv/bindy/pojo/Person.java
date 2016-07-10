@@ -1,11 +1,20 @@
 package cz.hatoff.camel.examples.csv.bindy.pojo;
 
+import org.apache.camel.dataformat.bindy.annotation.CsvRecord;
+import org.apache.camel.dataformat.bindy.annotation.DataField;
+
 import java.util.Date;
 
+@CsvRecord(separator = ",")
 public class Person {
 
+    @DataField(pos = 1)
     private String name;
+
+    @DataField(pos = 2)
     private double amount;
+
+    @DataField(pos = 3, pattern = "dd/MM/yyyy")
     private Date date;
 
     public Person() {

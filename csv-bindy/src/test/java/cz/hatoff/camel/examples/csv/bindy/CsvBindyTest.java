@@ -6,7 +6,9 @@ import cz.hatoff.camel.examples.csv.bindy.pojo.Person;
 import org.apache.camel.RoutesBuilder;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.mock.MockEndpoint;
+import org.apache.camel.model.dataformat.BindyType;
 import org.apache.camel.test.junit4.CamelTestSupport;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.text.SimpleDateFormat;
@@ -21,6 +23,8 @@ public class CsvBindyTest extends CamelTestSupport {
             public void configure() {
 
                 from("direct:csv.in")
+                    .unmarshal().bindy(BindyType.Csv, Person.class)
+                    .split(body())
                     .to("mock:unmarshalled");
 
             }
@@ -46,7 +50,9 @@ public class CsvBindyTest extends CamelTestSupport {
                 new Person("Veronika", 52.4, new SimpleDateFormat(DATE_FORMAT).parse("27/01/1989"))
         );
 
+        mock.setResultWaitTime(20000);
+
         mock.assertIsSatisfied();
-        
+
     }
 }
