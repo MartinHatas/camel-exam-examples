@@ -3,16 +3,18 @@ package cz.hatoff.camel.examples.csv.bindy.pojo;
 import org.apache.camel.dataformat.bindy.annotation.CsvRecord;
 import org.apache.camel.dataformat.bindy.annotation.DataField;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Date;
 
-@CsvRecord(separator = ",")
+@CsvRecord(separator = ";", generateHeaderColumns=true, skipFirstLine = true)
 public class Person {
 
     @DataField(pos = 1)
     private String name;
 
-    @DataField(pos = 2)
-    private double amount;
+    @DataField(pos = 2, precision = 1, decimalSeparator = ".")
+    private BigDecimal price;
 
     @DataField(pos = 3, pattern = "dd/MM/yyyy")
     private Date date;
@@ -20,9 +22,9 @@ public class Person {
     public Person() {
     }
 
-    public Person(String name, double amount, Date date) {
+    public Person(String name, BigDecimal price, Date date) {
         this.name = name;
-        this.amount = amount;
+        this.price = price;
         this.date = date;
     }
 
@@ -34,12 +36,13 @@ public class Person {
         this.name = name;
     }
 
-    public double getAmount() {
-        return amount;
+
+    public BigDecimal getPrice() {
+        return price;
     }
 
-    public void setAmount(double amount) {
-        this.amount = amount;
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 
     public Date getDate() {
@@ -57,19 +60,16 @@ public class Person {
 
         Person person = (Person) o;
 
-        if (Double.compare(person.amount, amount) != 0) return false;
         if (name != null ? !name.equals(person.name) : person.name != null) return false;
+        if (price != null ? !(price.setScale(1, RoundingMode.HALF_UP).compareTo(person.price.setScale(1, RoundingMode.HALF_UP)) == 0) : person.price != null) return false;
         return date != null ? date.equals(person.date) : person.date == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result;
-        long temp;
-        result = name != null ? name.hashCode() : 0;
-        temp = Double.doubleToLongBits(amount);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + (price != null ? price.hashCode() : 0);
         result = 31 * result + (date != null ? date.hashCode() : 0);
         return result;
     }
