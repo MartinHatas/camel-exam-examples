@@ -7,16 +7,16 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Date;
 
-@CsvRecord(separator = ";", generateHeaderColumns=true, skipFirstLine = true)
+@CsvRecord(separator = ";", generateHeaderColumns=true, skipFirstLine = true, quoting = false)
 public class Person {
 
-    @DataField(pos = 1)
+    @DataField(pos = 1, columnName = "Name")
     private String name;
 
-    @DataField(pos = 2, precision = 1, decimalSeparator = ".")
+    @DataField(pos = 2, columnName = "Price", precision = 1, decimalSeparator = ".")
     private BigDecimal price;
 
-    @DataField(pos = 3, pattern = "dd/MM/yyyy")
+    @DataField(pos = 3, columnName = "Date", pattern = "dd/MM/yyyy")
     private Date date;
 
     public Person() {
