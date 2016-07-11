@@ -1,6 +1,6 @@
 # camel-exam-examples
 
-This project contains examples as preparation for EX421 Red Hat Certificate of Expertise in Camel Development exam
+This project contains examples as my preparation for EX421 Red Hat Certificate of Expertise in Camel Development exam
 
 * Create and maintain Camel routes
   * Use the Java™ language
