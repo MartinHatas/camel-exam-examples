@@ -11,8 +11,8 @@ This project contains examples as my preparation for EX421 Red Hat Certificate o
   * Headers
   * Attachments
 * Consume and produce files
-  * CSV format
-  * XML format
+  * CSV format [Examples](https://github.com/MartinHatas/camel-exam-examples/tree/master/csv/src/test/java/cz/hatoff/camel/examples)
+  * XML format [Examples](https://github.com/MartinHatas/camel-exam-examples/tree/master/xml/src/test/java/cz/hatoff/camel/examples/xml/xstream)
 * Work with databases and the Camel JPA component
 * Understand transactional routes
 * Use EIPs
