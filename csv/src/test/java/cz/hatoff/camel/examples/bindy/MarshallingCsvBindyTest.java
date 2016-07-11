@@ -1,6 +1,6 @@
-package cz.hatoff.camel.examples.csv.bindy;
+package cz.hatoff.camel.examples.bindy;
 
-import cz.hatoff.camel.examples.csv.pojo.Person;
+import cz.hatoff.camel.examples.pojo.Person;
 import org.apache.camel.RoutesBuilder;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.mock.MockEndpoint;

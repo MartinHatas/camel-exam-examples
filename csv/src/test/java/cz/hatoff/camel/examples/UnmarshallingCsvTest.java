@@ -1,4 +1,4 @@
-package cz.hatoff.camel.examples.csv;
+package cz.hatoff.camel.examples;
 
 import org.apache.camel.RoutesBuilder;
 import org.apache.camel.builder.RouteBuilder;

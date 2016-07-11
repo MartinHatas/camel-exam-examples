@@ -1,4 +1,4 @@
-package cz.hatoff.camel.examples.csv.pojo;
+package cz.hatoff.camel.examples.pojo;
 
 import org.apache.camel.dataformat.bindy.annotation.CsvRecord;
 import org.apache.camel.dataformat.bindy.annotation.DataField;
